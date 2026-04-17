@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Salary Management UI (Frontend)
 
-## Getting Started
+## 🏗️ Architecture
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: TanStack Query (React Query)
+- **Key Features**:
+  - Server-side rendering for performance
+  - Responsive design
+  - Real-time search and filtering
+  - Paginated employee lists
 
-First, run the development server:
+## 🚀 Getting Started
 
+### Prerequisites
+- Node.js 18+
+- npm
+
+### Frontend Setup
 ```bash
+cd salary-management-ui
+
+npm install
+
+# Set environment variable
+echo "NEXT_PUBLIC_API_URL=http://localhost:3001/api/v1" > .env.local
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Access
+- **Frontend**: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✅ Frontend Features
+- Dashboard with key metrics
+- Employee list with search and filtering
+- Pagination (50 records per page)
+- Status filtering (active, on_leave, terminated)
+- Salary insights by country
+- Salary insights by job title
+- Responsive design
+- TypeScript for type safety
+- React Query for efficient data fetching
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 User Interface
 
-## Learn More
+### Dashboard
+- Total employees count
+- Average salary
+- Average tenure
+- Recent hires (last 30 days)
+- Quick access to employees and insights
+- Recent employees table preview
 
-To learn more about Next.js, take a look at the following resources:
+### Employees Page
+- Sortable, filterable table
+- Search across name, email, employee ID
+- Status filter
+- Pagination controls
+- Displays: name, job title, department, location, salary, tenure, status
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Insights Page
+- Salary statistics by country table
+- Salary statistics by job title table
+- Min/max/average salary breakdowns
+- Employee counts per category
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔧 Technical Decisions
+1. **Next.js App Router**: Modern routing with better performance
+2. **TanStack Query**: Automatic caching and refetching
+3. **Tailwind CSS**: Utility-first CSS for rapid development
+4. **TypeScript**: Type safety and better developer experience
+5. **Component Reusability**: Shared utility functions for formatting
 
-## Deploy on Vercel
+## 🗂️ Project Structure
+```
+salary-management-ui/
+├── app/
+│   ├── page.tsx                # Dashboard
+│   ├── employees/
+│   │   └── page.tsx            # Employee list
+│   └── insights/
+│       └── page.tsx            # Insights dashboard
+├── components/
+│   └── providers/
+│       └── query-provider.tsx
+├── lib/
+│   ├── api.ts                  # API client
+│   └── utils.ts                # Utility functions
+└── package.json
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧪 Testing
+```bash
+cd salary-management-ui
+npm test
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚢 Deployment (Vercel)
+```bash
+cd salary-management-ui
+vercel --prod
+```
+
+## 📝 Environment Variables
+```
+NEXT_PUBLIC_API_URL=https://your-api-url.com/api/v1
+```
